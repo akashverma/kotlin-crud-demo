@@ -1,6 +1,7 @@
 package com.example.kotlincrud.controller
 
 import com.example.kotlincrud.dtos.Hello
+import com.example.kotlincrud.dtos.jpa.Student
 import com.example.kotlincrud.dtos.requests.RegisterRequest
 import com.example.kotlincrud.dtos.response.RegisterResponse
 import com.example.kotlincrud.service.RegisterService
@@ -27,12 +28,13 @@ class RegistrationController {
 
     @PostMapping("/register")
     fun register(@RequestBody registerRequest: RegisterRequest): RegisterResponse {
-        println(registerRequest.name)
-
-        //preparing the response
-        var response = RegisterResponse();
-        response.name = registerRequest.name;
-        return response
+        return registerService.register(registerRequest)
     }
+
+    @GetMapping("/get/{id}")
+    fun getById(@PathVariable id: String): Student {
+        return registerService.getById(id)
+    }
+
 
 }

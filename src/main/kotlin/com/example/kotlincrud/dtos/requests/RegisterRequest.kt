@@ -5,5 +5,5 @@ import lombok.Data
 @Data
 class RegisterRequest {
     val name: String? = null
-    val age = 0
+    val age : String? = null
 }

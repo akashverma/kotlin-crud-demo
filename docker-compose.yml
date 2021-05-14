@@ -4,7 +4,7 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: akash-docker-mysql
+    #container_name: akash-docker-mysql
     restart: always
     environment:
       MYSQL_DATABASE: 'db'
